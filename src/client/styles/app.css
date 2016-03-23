@@ -1,0 +1,45 @@
+.viewport-height {
+    height: 100vh;
+}
+.akron-rugby-background-image {
+    z-index: 0;
+    background-image: url("../images/photos/akron-rugby-background.JPG");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.crest-wrapper {
+    text-align: center;
+}
+
+.crest-icon {
+    display: inline-block;
+}
+
+.title-text {
+    font-size: 75px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.banner-text {
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.info-box {
+    background-color: #FFFFFF;
+    padding-bottom: 20px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.info-box-text {
+    line-height: 200%;
+}
+
+.rugby-navbar {
+    background-color: rgba(255,255,255,0.5);
+}

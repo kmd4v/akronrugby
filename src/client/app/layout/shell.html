@@ -1,0 +1,25 @@
+<div ng-controller="Shell as vm">
+    <section id="content" class="content">
+        <div class="viewport-height">
+            <div class="akron-rugby-background-image">
+                <div class="row">
+                    <div class="col-sm-12 crest-icon">
+                        <div class="crest-wrapper">
+                            <img src="src\client\images\photos\crest.jpg"/>
+                        </div>
+                    </div>
+                </div>
+                <div ui-view class="shuffle-animation"></div>
+
+                <div ngplus-overlay
+                     ngplus-overlay-delay-in="50"
+                     ngplus-overlay-delay-out="700"
+                     ngplus-overlay-animation="dissolve-animation">
+                    <img src="images/busy.gif"/>
+
+                    <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
