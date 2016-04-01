@@ -4,13 +4,37 @@
             <div ng-include="'app/rugby/navigation-bar.html'"></div>
         </div>
     </div>
-    <div ng-if="infoBoxCtrl.tab === 'mensabout'">
+    <div ng-if="rugbyTab === 'about'">
         <div class="row">
             <div class="col-sm-offset-1 col-sm-10">
                 <p class="info-box-text">
-                    {{infoBoxCtrl.mensAboutText}}
+                    {{aboutText}}
                 </p>
             </div>
+        </div>
+    </div>
+    <div ng-if="rugbyTab === 'schedule'">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10">
+                <img src="images/schedule/schedule.jpeg"/>
+            </div>
+        </div>
+    </div>
+    <div ng-if="rugbyTab === 'contacts'">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10">
+                <div ng-if="faction === 'mens'">
+                    Men's photos
+                </div>
+                <div ng-if="faction === 'womens'">
+                    Women's photos
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
         </div>
     </div>
 </div>

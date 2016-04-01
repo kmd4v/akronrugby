@@ -21,33 +21,26 @@
                 }
             },
             {
-                state: 'rugby.home',
+                state: 'rugby.splash',
                 config: {
-                    url: '/home',
+                    url: '/splash',
                     templateUrl: 'app/rugby/splash-page.html',
                     controller: 'SplashPageController',
-                    controllerAs: 'vm',
+                    controllerAs: 'splashPageCtrl',
                     title: 'Akron Rugby'
                 }
             },
             {
-                state: 'rugby.mensAbout',
+                state: 'rugby.home',
                 config: {
-                    url: '/mens/about',
-                    templateUrl: 'app/rugby/mens-about.html',
-                    controller: 'MensAboutController',
-                    controllerAs: 'vm',
-                    title: 'Men\'s Rugby'
-                }
-            },
-            {
-                state: 'rugby.schedule',
-                config: {
-                    url: '/schedule',
-                    templateUrl: 'app/rugby/schedule.html',
-                    controller: 'ScheduleController',
-                    controllerAs: 'vm',
-                    title: 'Akron Rugby Schedule'
+                    url: '/:faction/home',
+                    templateUrl: 'app/rugby/home.html',
+                    controller: 'HomeController',
+                    controllerAs: 'homeCtrl',
+                    title: 'Akron Rugby',
+                    data: {
+                        currentState: 'about'
+                    }
                 }
             }
         ];

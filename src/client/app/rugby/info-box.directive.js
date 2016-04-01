@@ -6,24 +6,29 @@
     module.directive(directiveId, infoBox);
 
     /* @ngInject */
-    function infoBox() {
+    function infoBox(rugbyConfig, $stateParams) {
         var directive = {
             restrict: 'E',
-            templateUrl: 'app/rugby/info-box.html',
-            controller: controller,
-            controllerAs: 'infoBoxCtrl',
             scope: {
-                rugbyTab: '='
-            }
+                'rugbyTab': '@'
+            },
+            templateUrl: 'app/rugby/info-box.html',
+            link: link
         };
 
         return directive;
 
-        /* @ngInject */
-        function controller($scope, rugbyConfig) {
-            var vm = this;
-            vm.tab = $scope.tab;
-            vm.mensAboutText = rugbyConfig.mensAboutText;
+
+        function link(scope, elem, attrs) {
+            scope.faction = $stateParams.faction;
+
+            if (scope.rugbyTab === 'about') {
+                scope.aboutText = scope.faction === 'mens' ? rugbyConfig.mensAboutText : rugbyConfig.womensAboutText;
+            }
+
+            scope.$on('changeTab', function(event, args) {
+               scope.rugbyTab = args.tab;
+            });
         }
     }
 })(angular.module('app.rugby'));

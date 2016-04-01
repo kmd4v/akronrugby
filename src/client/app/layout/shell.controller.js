@@ -13,10 +13,6 @@
         vm.busyMessage = 'Please wait ...';
         vm.isBusy = true;
         vm.showSplash = true;
-        vm.tagline = {
-            text: 'Created by John Papa',
-            link: 'http://twitter.com/john_papa'
-        };
 
         activate();
 
@@ -28,7 +24,7 @@
             //Force a 1 second delay so we can see the splash.
             $timeout(function() {
                 vm.showSplash = false;
-                vm.goTo('home');
+                vm.goTo('splash');
             }, 1000);
         }
 

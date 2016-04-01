@@ -9,7 +9,8 @@
             'Subsequently in the 1980s, the Akron RFC embarked on several successful European tours.  The Akron RFC then became permanently settled in Akron in the early 1990s with the purchase of land, ' +
             'which now houses a Multifunctional Shed, pavilion, and pitch.  ' +
             'Today, the Akron RFC is a member of and contributor to the Greater Akron Rugby Foundation.  ' +
-            'The Akron RFC is open to individuals of all ages and skills levels. See contacts for more information.'
+            'The Akron RFC is open to individuals of all ages and skills levels. See contacts for more information.',
+            womensAboutText: 'This is text about the Akron Women\'s team'
         });
 
 })();

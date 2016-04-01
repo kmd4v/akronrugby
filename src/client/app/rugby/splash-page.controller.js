@@ -15,8 +15,8 @@
 
         }
 
-        function goTo(state) {
-            $state.go('rugby.' + state);
+        vm.goTo = function(state, faction) {
+            $state.go('rugby.' + state, {faction: faction});
         }
     }
 })();

@@ -6,16 +6,23 @@
         .controller('NavBarController', NavBarController);
 
     /* @ngInject */
-    function NavBarController($state) {
+    function NavBarController($rootScope, $state, $stateParams) {
         var vm = this;
 
         activate();
 
         function activate() {
+            vm.faction = $stateParams.faction;
+            vm.active = $state.current.data.currentState;
         }
 
         vm.goTo = function(state) {
-            $state.go('rugby.' + state);
+            if (state === 'splash') {
+                $state.go('rugby.' + state);
+            } else {
+                $rootScope.$broadcast('changeTab', {tab: state});
+                vm.active = state;
+            }
         }
     }
 })();

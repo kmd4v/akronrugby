@@ -3,16 +3,15 @@
 
     angular
         .module('app.rugby')
-        .controller('ScheduleController', ScheduleController);
+        .controller('HomeController', HomeController);
 
     /* @ngInject */
-    function ScheduleController() {
+    function HomeController($scope, rugbyConfig, logger) {
         var vm = this;
 
         activate();
 
         function activate() {
-
         }
     }
 })();

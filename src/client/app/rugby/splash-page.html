@@ -1,16 +1,16 @@
-<div ng-controller="Shell as vm">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="title-text">Akron Rugby</h1>
-            </div>
+<div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="title-text">Akron Rugby</h1>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <a href="" ng-click="vm.goTo('mensAbout')"><h3 class="banner-text">Men's Rugby Team</h3></a>
-            </div>
-            <div class="col-sm-6">
-                <a href="" ng-click="vm.goTo('womens')"><h3 class="banner-text">Womens' Rugby Team</h3></a>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <a href="" ng-click="splashPageCtrl.goTo('home', 'mens')"><h3 class="banner-text">Men's Rugby Team</h3></a>
         </div>
+        <div class="col-sm-6">
+            <a href="" ng-click="splashPageCtrl.goTo('home', 'womens')"><h3 class="banner-text">Womens' Rugby Team</h3></a>
+        </div>
+    </div>
 </div>
 
