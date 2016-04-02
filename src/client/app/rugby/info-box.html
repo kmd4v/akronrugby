@@ -1,3 +1,18 @@
+<div class="modal fade" id="events-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Event</h3>
+            </div>
+            <div class="modal-body" style="height: 200px">
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-12">
         <div class="rugby-navbar" ng-include="'app/rugby/navigation-bar.html'"></div>
@@ -29,7 +44,8 @@
             <div ng-if="rugbyTab === 'schedule'">
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10">
-                        <img src="images/schedule/schedule.jpeg"/>
+                        <div id="calendar"></div>
+                        <!--<iframe src="https://calendar.google.com/calendar/embed?src=7s9mr8nl2v2cb1pr0uc44ksn0c%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>-->
                     </div>
                 </div>
             </div>

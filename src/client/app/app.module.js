@@ -10,6 +10,6 @@
         /* Feature areas */
         'app.rugby',
         'app.layout'
-    ]);
+    ]).constant('_', window._);
 
 })();

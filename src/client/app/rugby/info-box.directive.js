@@ -6,30 +6,75 @@
     module.directive(directiveId, infoBox);
 
     /* @ngInject */
-    function infoBox(rugbyConfig, $stateParams) {
+    function infoBox($stateParams, $http, rugbyConfig, _) {
         var directive = {
             restrict: 'E',
             scope: {
                 'rugbyTab': '@'
             },
             templateUrl: 'app/rugby/info-box.html',
-            link: link
+            controller: controller
         };
 
         return directive;
 
-        function link(scope, elem, attrs) {
-            scope.faction = $stateParams.faction;
+        /* @ngInject */
+        function controller($scope) {
 
-            if (scope.rugbyTab === 'about') {
-                scope.title = 'About Men\'s Akron Rugby';
-                scope.aboutText = scope.faction === 'mens' ? rugbyConfig.mensAboutText
-                    : rugbyConfig.womensAboutText;
+            $scope.faction = $stateParams.faction;
+
+            setTabValues();
+            $scope.$on('changeTab', function(event, args) {
+                $scope.rugbyTab = args.tab;
+                setTabValues();
+            });
+
+            function setTabValues() {
+                if ($scope.rugbyTab === 'about') {
+                    $scope.title = 'About Men\'s Akron Rugby';
+                    $scope.aboutText = $scope.faction === 'mens' ? rugbyConfig.mensAboutText
+                        : rugbyConfig.womensAboutText;
+                }
+
+                if ($scope.rugbyTab === 'schedule') {
+                    var key = 'AIzaSyALu9Z-jm-hWYMRrJiJz5xChWFvOKiIGJY';
+                    var calendarId = '7s9mr8nl2v2cb1pr0uc44ksn0c@group.calendar.google.com';
+
+                    $http.get('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?key=' + key)
+                        .then(calendarGetSuccess)
+                        .catch(calendarGetFail);
+                }
+
+            }
+            function calendarGetSuccess(data) {
+
+                var calendar = $("#calendar").calendar({
+                        tmpl_path: '/src/client/app/calendar/tmpls/',
+                        events_source: convertToCalData(data.data.items),
+                        modal: "#events-modal",
+                        modal_type: 'template'
+                    });
             }
 
-            scope.$on('changeTab', function(event, args) {
-                scope.rugbyTab = args.tab;
-            });
+            function calendarGetFail(data) {
+                console.log(data.error.message);
+            }
+
+            function convertToCalData(data) {
+                var returnVals = [];
+                _.forEach(data, function(value) {
+                    var val = {};
+                    val.id = value.id;
+                    val.title = value.description;
+                    val.start = new Date(value.start.dateTime).getTime();
+                    val.end = new Date(value.end.dateTime).getTime();
+                    val.location = value.location;
+                    val.summary = value.summary;
+                    returnVals.push(val);
+                });
+
+                return returnVals;
+            }
         }
     }
 })(angular.module('app.rugby'));
