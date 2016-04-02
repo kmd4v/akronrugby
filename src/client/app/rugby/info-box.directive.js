@@ -6,7 +6,7 @@
     module.directive(directiveId, infoBox);
 
     /* @ngInject */
-    function infoBox($stateParams, $http, rugbyConfig, _) {
+    function infoBox($stateParams, $filter, $http, rugbyConfig, _) {
         var directive = {
             restrict: 'E',
             scope: {
@@ -22,6 +22,7 @@
         function controller($scope) {
 
             $scope.faction = $stateParams.faction;
+            $scope.date = $filter('date')(new Date(), 'fullDate', 'EST');
 
             setTabValues();
             $scope.$on('changeTab', function(event, args) {
@@ -54,6 +55,20 @@
                         modal: "#events-modal",
                         modal_type: 'template'
                     });
+
+                $('.btn-group button[data-calendar-nav]').each(function() {
+                    var $this = $(this);
+                    $this.click(function() {
+                        calendar.navigate($this.data('calendar-nav'));
+                    });
+                });
+
+                $('.btn-group button[data-calendar-view]').each(function() {
+                    var $this = $(this);
+                    $this.click(function() {
+                        calendar.view($this.data('calendar-view'));
+                    });
+                });
             }
 
             function calendarGetFail(data) {

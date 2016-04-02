@@ -44,6 +44,22 @@
             <div ng-if="rugbyTab === 'schedule'">
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10">
+                        <div class="page-header">
+                            <div class="pull-right form-inline">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" data-calendar-nav="prev">&lt;&lt; Prev</button>
+                                    <button class="btn btn-default" data-calendar-nav="today">Today</button>
+                                    <button class="btn btn-primary" data-calendar-nav="next">Next &gt;&gt;</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning" data-calendar-view="year">Year</button>
+                                    <button class="btn btn-warning" data-calendar-view="month">Month</button>
+                                    <button class="btn btn-warning" data-calendar-view="week">Week</button>
+                                    <button class="btn btn-warning active" data-calendar-view="day">Day</button>
+                                </div>
+                            </div>
+                            <h3>{{date}}</h3>
+                        </div>
                         <div id="calendar"></div>
                         <!--<iframe src="https://calendar.google.com/calendar/embed?src=7s9mr8nl2v2cb1pr0uc44ksn0c%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>-->
                     </div>
