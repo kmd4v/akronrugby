@@ -9,12 +9,14 @@
     height: 100%;
 }
 
-.crest-wrapper {
+.crest-icon {
     text-align: center;
 }
 
-.crest-icon {
+.crest-wrapper {
     display: inline-block;
+    position: absolute;
+    top: 120px;
 }
 
 .title-text {
@@ -24,10 +26,11 @@
 }
 
 .banner-text {
-    font-size: 20px;
     color: #FFFFFF;
     text-align: center;
-    text-decoration: underline;
+    font-size: 50px;
+    font-style: italic;
+    text-decoration: none;
 }
 
 .info-box {
@@ -41,5 +44,59 @@
 }
 
 .rugby-navbar {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,.7);
+    position: absolute;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+}
+
+h3, p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a:hover.banner-text-link, a:focus.banner-text-link {
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-brand {
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+    font-weight: 700;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #000000
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+    font-weight: 700;
+}
+
+.center-wrapper {
+    position:absolute;
+    left:50%
+}
+
+.info-title-text {
+    font-size: 75px;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    left: -50%;
 }

@@ -28,8 +28,8 @@
             }, 1000);
         }
 
-         vm.goTo = function(state) {
+        vm.goTo = function(state) {
             $state.go('rugby.' + state);
-        }
+        };
     }
 })();

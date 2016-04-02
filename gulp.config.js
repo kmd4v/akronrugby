@@ -26,8 +26,11 @@ module.exports = function() {
         ],
         build: './build/',
         client: client,
-        css: temp + 'styles.css',
+        css: temp + '**/*.css',
         rugbyCss:  client + 'styles/app.css',
+        cssRugby: [
+            './.tmp/styles/rugby.css'
+        ],
         bootstrap: client + 'styles/bootstrap.min.css',
         fonts: bower.directory + 'font-awesome/fonts/**/*.*',
         html: client + '**/*.html',
@@ -45,7 +48,7 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
-        less: client + 'styles/styles.less',
+        less: client + '**/*.less',
         report: report,
         root: root,
         server: server,

@@ -23,12 +23,12 @@ describe('Shell', function() {
             expect(controller.showSplash).to.be.true;
         });
 
-        it('should hide splash screen after timeout', function(done) {
-            $timeout(function() {
-                expect(controller.showSplash).to.be.false;
-                done();
-            }, 1000);
-            $timeout.flush();
-        });
+        //it('should hide splash screen after timeout', function(done) {
+        //    $timeout(function() {
+        //        expect(controller.showSplash).to.be.false;
+        //        done();
+        //    }, 1000);
+        //    $timeout.flush();
+        //});flush
     });
 });

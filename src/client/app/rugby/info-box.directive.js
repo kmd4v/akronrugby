@@ -18,16 +18,17 @@
 
         return directive;
 
-
         function link(scope, elem, attrs) {
             scope.faction = $stateParams.faction;
 
             if (scope.rugbyTab === 'about') {
-                scope.aboutText = scope.faction === 'mens' ? rugbyConfig.mensAboutText : rugbyConfig.womensAboutText;
+                scope.title = 'About Men\'s Akron Rugby';
+                scope.aboutText = scope.faction === 'mens' ? rugbyConfig.mensAboutText
+                    : rugbyConfig.womensAboutText;
             }
 
             scope.$on('changeTab', function(event, args) {
-               scope.rugbyTab = args.tab;
+                scope.rugbyTab = args.tab;
             });
         }
     }

@@ -139,13 +139,16 @@ gulp.task('wiredep', function() {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
+gulp.task('inject', ['styles', 'templatecache'], function() {
     log('Wire up css into the html, after files are ready');
+
+    var cssRugby = config.cssRugby;
 
     return gulp
         .src(config.index)
         .pipe(inject(config.css))
         .pipe(inject(config.rugbyCss))
+        .pipe(inject(cssRugby, 'cssRugby'))
         .pipe(inject(config.bootstrap))
         .pipe(gulp.dest(config.client));
 });
@@ -242,7 +245,7 @@ gulp.task('optimize', ['inject', 'test'], function() {
         .pipe($.uglify()) // another option is to override wiredep to use min files
         .pipe(jslibFilter.restore())
         // Take inventory of the file names for future rev numbers
-        .pipe($.rev())
+        //.pipe($.rev())
         // Apply the concat and file replacement with useref
         .pipe(assets.restore())
         .pipe($.useref())

@@ -23,6 +23,6 @@
                 $rootScope.$broadcast('changeTab', {tab: state});
                 vm.active = state;
             }
-        }
+        };
     }
 })();
