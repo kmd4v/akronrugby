@@ -18,12 +18,12 @@
         <div class="rugby-navbar" ng-include="'app/rugby/navigation-bar.html'"></div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="center-wrapper" style="top: 70px;">
+                <div class="center-wrapper">
                     <h1 class="info-title-text">{{title}}</h1>
                 </div>
             </div>
         </div>
-        <img src="src\client\images\photos\akron-rugby-background.JPG"/>
+        <img style="width:100%" src="src\client\images\photos\akron-rugby-background.JPG"/>
         <div class="info-box">
             <div ng-if="rugbyTab === 'about'">
                 <div class="row">
@@ -55,13 +55,12 @@
                                     <button class="btn btn-warning" data-calendar-view="year">Year</button>
                                     <button class="btn btn-warning" data-calendar-view="month">Month</button>
                                     <button class="btn btn-warning" data-calendar-view="week">Week</button>
-                                    <button class="btn btn-warning active" data-calendar-view="day">Day</button>
+                                    <button class="btn btn-warning" data-calendar-view="day">Day</button>
                                 </div>
                             </div>
                             <h3>{{date}}</h3>
                         </div>
                         <div id="calendar"></div>
-                        <!--<iframe src="https://calendar.google.com/calendar/embed?src=7s9mr8nl2v2cb1pr0uc44ksn0c%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>-->
                     </div>
                 </div>
             </div>

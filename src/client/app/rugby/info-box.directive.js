@@ -13,7 +13,8 @@
                 'rugbyTab': '@'
             },
             templateUrl: 'app/rugby/info-box.html',
-            controller: controller
+            controller: controller,
+            controllerAs: 'infoBoxCtrl'
         };
 
         return directive;
@@ -23,6 +24,8 @@
 
             $scope.faction = $stateParams.faction;
             $scope.date = $filter('date')(new Date(), 'fullDate', 'EST');
+
+            disableDayClickMobile();
 
             setTabValues();
             $scope.$on('changeTab', function(event, args) {
@@ -38,8 +41,9 @@
                 }
 
                 if ($scope.rugbyTab === 'schedule') {
-                    var key = 'AIzaSyALu9Z-jm-hWYMRrJiJz5xChWFvOKiIGJY';
-                    var calendarId = '7s9mr8nl2v2cb1pr0uc44ksn0c@group.calendar.google.com';
+                    $scope.title = 'Akron Rugby Event Schedule';
+                    var key = rugbyConfig.calendarKey;
+                    var calendarId = rugbyConfig.calendarId;
 
                     $http.get('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?key=' + key)
                         .then(calendarGetSuccess)
@@ -80,15 +84,33 @@
                 _.forEach(data, function(value) {
                     var val = {};
                     val.id = value.id;
-                    val.title = value.description;
+                    val.title = value.summary;
                     val.start = new Date(value.start.dateTime).getTime();
                     val.end = new Date(value.end.dateTime).getTime();
                     val.location = value.location;
-                    val.summary = value.summary;
+                    val.summary = value.description;
                     returnVals.push(val);
                 });
 
                 return returnVals;
+            }
+
+            function disableDayClickMobile() {
+                var currentWindow = angular.element(window);
+                var lastWindowWidth = currentWindow.width();
+                if (lastWindowWidth < 768) {
+                    $scope.clickDay = 'day';
+                }
+
+                currentWindow.resize(function() {
+                    var windowWidth = currentWindow.width();
+                    if (lastWindowWidth !== windowWidth && windowWidth < 768) {
+                        $scope.clickDay = 'day';
+                    } else if (lastWindowWidth !== windowWidth) {
+                        $scope.clickDay = '';
+                    }
+                    lastWindowWidth = windowWidth;
+                })
             }
         }
     }

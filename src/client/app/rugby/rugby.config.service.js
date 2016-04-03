@@ -18,7 +18,9 @@
             ' Akron Rugby Foundation.  ' +
             'The Akron RFC is open to individuals of all ages and skills levels. ' +
             'See contacts for more information.',
-            womensAboutText: 'This is text about the Akron Women\'s team'
+            womensAboutText: 'This is text about the Akron Women\'s team',
+            calendarKey: 'AIzaSyALu9Z-jm-hWYMRrJiJz5xChWFvOKiIGJY',
+            calendarId: '7s9mr8nl2v2cb1pr0uc44ksn0c@group.calendar.google.com'
         });
 
 })();
