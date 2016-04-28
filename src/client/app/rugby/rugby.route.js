@@ -24,22 +24,48 @@
                 state: 'rugby.splash',
                 config: {
                     url: '/splash',
-                    templateUrl: 'app/rugby/splash-page.html',
+                    templateUrl: 'app/rugby/templates/splash-page.html',
                     controller: 'SplashPageController',
                     controllerAs: 'splashPageCtrl',
-                    title: 'Akron Rugby'
+                    title: 'Akron Rugby Splash'
                 }
             },
             {
-                state: 'rugby.home',
+                state: 'rugby.about',
                 config: {
-                    url: '/:faction/home',
-                    templateUrl: 'app/rugby/home.html',
-                    controller: 'HomeController',
-                    controllerAs: 'homeCtrl',
-                    title: 'Akron Rugby',
+                    url: '/:faction/about',
+                    templateUrl: 'app/rugby/templates/about.html',
+                    controller: 'AboutController',
+                    controllerAs: 'aboutCtrl',
+                    title: 'Akron Rugby About',
                     data: {
                         currentState: 'about'
+                    }
+                }
+            },
+            {
+                state: 'rugby.schedule',
+                config: {
+                    url: '/:faction/schedule',
+                    templateUrl: 'app/rugby/templates/schedule.html',
+                    controller: 'ScheduleController',
+                    controllerAs: 'scheduleCtrl',
+                    title: 'Akron Rugby Schedule',
+                    data: {
+                        currentState: 'schedule'
+                    }
+                }
+            },
+            {
+                state: 'rugby.contacts',
+                config: {
+                    url: '/:faction/contacts',
+                    templateUrl: 'app/rugby/templates/contacts.html',
+                    controller: 'ContactsController',
+                    controllerAs: 'contactsCtrl',
+                    title: 'Akron Rugby Contacts',
+                    data: {
+                        currentState: 'contacts'
                     }
                 }
             }

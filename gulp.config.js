@@ -41,6 +41,7 @@ module.exports = function() {
         js: [
             clientApp + '**/*.module.js',
             clientApp + '**/*.js',
+            clientApp + 'rugby/**/*.js',
             '!' + clientApp + '**/*.spec.js'
         ],
         jsOrder: [

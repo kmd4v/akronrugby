@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="rugby-navbar" ng-include="'app/rugby/templates/navigation-bar.html'"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="center-wrapper">
+                    <h1 class="info-title-text">{{contactsCtrl.title}}</h1>
+                </div>
+            </div>
+        </div>
+        <img style="width:100%" src="src/client/images/photos/akron-rugby-background.JPG"/>
+        <div class="info-box">
+            <div class="row">
+                <div class="col-sm-6">
+                    <contacts-carousel team-role="president"></contacts-carousel>
+                </div>
+                <div class="col-sm-6">
+                    <contacts-carousel team-role="vp"></contacts-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

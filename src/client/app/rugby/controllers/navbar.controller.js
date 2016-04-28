@@ -17,12 +17,7 @@
         }
 
         vm.goTo = function(state) {
-            if (state === 'splash') {
-                $state.go('rugby.' + state);
-            } else {
-                $rootScope.$broadcast('changeTab', {tab: state});
-                vm.active = state;
-            }
+            $state.go('rugby.' + state, {faction: vm.faction});
         };
     }
 })();
