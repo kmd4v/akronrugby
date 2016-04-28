@@ -18,6 +18,34 @@
                     <contacts-carousel team-role="vp"></contacts-carousel>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <contacts-carousel team-role="matchsecretary"></contacts-carousel>
+                </div>
+                <div class="col-sm-6">
+                    <contacts-carousel team-role="treasurer"></contacts-carousel>
+                </div>
+            </div>
+            <div  ng-if="contactsCtrl.faction === 'mens'">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <contacts-carousel team-role="teamcaptain"></contacts-carousel>
+                    </div>
+                    <div class="col-sm-6">
+                        <contacts-carousel team-role="coach1"></contacts-carousel>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        <contacts-carousel team-role="coach2"></contacts-carousel>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="contactsCtrl.faction === 'womens'">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <contacts-carousel team-role="coach1"></contacts-carousel>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -18,9 +18,77 @@
             ' Akron Rugby Foundation.  ' +
             'The Akron RFC is open to individuals of all ages and skills levels. ' +
             'See contacts for more information.',
-            womensAboutText: 'This is text about the Akron Women\'s team',
+            womensAboutText: 'Coming Soon...',
             calendarKey: 'AIzaSyALu9Z-jm-hWYMRrJiJz5xChWFvOKiIGJY',
-            calendarId: '7s9mr8nl2v2cb1pr0uc44ksn0c@group.calendar.google.com'
+            calendarId: '7s9mr8nl2v2cb1pr0uc44ksn0c@group.calendar.google.com',
+            contactInfo: {
+                mens: {
+                    president: {
+                        name: 'Bob Perko',
+                        email: 'Rperko1980@gmail.com',
+                        phone: '216.224.7213'
+                    },
+                    vp: {
+                        name: 'Zac Smith',
+                        email: 'Zacthehero@gmail.com',
+                        phone: '765.215.3188'
+                    },
+                    matchsecretary: {
+                        name: 'Matt Williams',
+                        email: 'Jeepmatt86@gmail.com',
+                        phone: '234.207.8203'
+                    },
+                    treasurer: {
+                        name: 'Ben Coudriet',
+                        email: '',
+                        phone: ''
+                    },
+                    teamcaptain: {
+                        name: 'Dom Tomei',
+                        email: '',
+                        phone: ''
+                    },
+                    coach1: {
+                        name: 'Tom Little',
+                        email: '',
+                        phone: ''
+                    },
+                    coach2: {
+                        name: 'Fred Warmbrant',
+                        email: '',
+                        phone: ''
+                    }
+                },
+                womens: {
+                    president: {
+                        name: 'Leila Halay',
+                        email: '',
+                        phone: ''
+                    },
+                    vp: {
+                        name: 'April Hall',
+                        email: '',
+                        phone: ''
+                    },
+                    matchsecretary: {
+                        name: 'Emily Ramsey',
+                        email: '',
+                        phone: ''
+                    },
+                    treasurer: {
+                        name: 'Erica Vallen',
+                        email: '',
+                        phone: ''
+                    },
+                    teamcaptain: null,
+                    coach1: {
+                        name: 'Dana Zito',
+                        email: '',
+                        phone: ''
+                    },
+                    coach2: null
+                }
+            }
         });
 
 })();

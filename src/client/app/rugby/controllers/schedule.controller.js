@@ -6,7 +6,7 @@
         .controller('ScheduleController', ScheduleController);
 
     /* @ngInject */
-    function ScheduleController($stateParams, $http, rugbyConfig) {
+    function ScheduleController($scope, $stateParams, $http, rugbyConfig) {
         var vm = this;
         vm.faction = $stateParams.faction;
 

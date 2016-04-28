@@ -197,3 +197,7 @@ a:hover.banner-text-link, a:focus.banner-text-link {
         box-shadow: none;
     }
 }
+
+.img-responsive.center-block.fixed-height-500 {
+    height: 500px;
+}
