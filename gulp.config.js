@@ -6,6 +6,7 @@ module.exports = function() {
     var root = './';
     var specRunnerFile = 'specs.html';
     var temp = './.tmp/';
+    var vendor = './vendor/';
     var wiredep = require('wiredep');
     var bowerFiles = wiredep({devDependencies: true})['js'];
     var bower = {
@@ -25,11 +26,15 @@ module.exports = function() {
             './*.js'
         ],
         build: './build/',
+        dist: './dist',
+        distTarGzip: 'akron-rugby.tar',
         client: client,
         css: temp + '**/*.css',
         rugbyCss:  client + 'styles/app.css',
         cssRugby: [
-            './.tmp/styles/rugby.css'
+            './src/client/styles/bootstrap.min.css',
+            './src/client/styles/calendar.css',
+            './src/client/styles/app.css'
         ],
         bootstrap: client + 'styles/bootstrap.min.css',
         fonts: bower.directory + 'font-awesome/fonts/**/*.*',
@@ -49,6 +54,28 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
+        jsConsumer: [
+            './src/vendor/jquery.js',
+            './src/vendor/angular/angular.js',
+            './src/vendor/bootstrap.js'
+        ],
+        jsOrderConsumer: [
+            './src/vendor/jquery.js',
+            './src/vendor/angular/angular.js',
+            './src/vendor/bootstrap.js'
+        ],
+        jsVendor: [
+            './src/vendor/angular/angular-ui-router.js',
+            './src/vendor/angular/angular-animate.js',
+            './src/vendor/angular/angular-sanitize.js',
+            './src/vendor/lodash.min.js'
+        ],
+        jsOrderVendor: [
+            './src/vendor/angular/angular-ui-router.js',
+            './src/vendor/angular/angular-animate.js',
+            './src/vendor/angular/angular-sanitize.js',
+            './src/vendor/lodash.min.js'
+        ],
         less: client + '**/*.less',
         report: report,
         root: root,
@@ -65,7 +92,8 @@ module.exports = function() {
          */
         optimized: {
             app: 'app.js',
-            lib: 'lib.js'
+            consumerLib: 'consumer-lib.js',
+            lib: 'rugby-lib.js'
         },
 
         /**
@@ -128,7 +156,7 @@ module.exports = function() {
          * Node settings
          */
         nodeServer: './src/server/app.js',
-        defaultPort: '7203'
+        defaultPort: '1337'
     };
 
     /**

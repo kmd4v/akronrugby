@@ -12,8 +12,7 @@
             'blocks.logger',
             'blocks.router',
             /* 3rd-party modules */
-            'ui.router',
-            'ngplus'
+            'ui.router'
         ]);
 
 })();
