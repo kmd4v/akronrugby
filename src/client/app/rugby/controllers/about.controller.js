@@ -13,7 +13,7 @@
         init();
 
         function init() {
-            vm.title = 'About ' + (vm.faction === 'mens' ? 'Men\'s' : 'Women\'s') + ' Akron Rugby';
+            vm.title = (vm.faction === 'mens' ? 'Men\'s' : 'Women\'s') + ' Akron Rugby Information';
             vm.aboutText = vm.faction === 'mens' ? rugbyConfig.mensAboutText
                 : rugbyConfig.womensAboutText;
         }

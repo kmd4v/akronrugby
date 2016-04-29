@@ -119,37 +119,41 @@ gulp.task('templatecache', ['clean-code'], function() {
         .pipe(gulp.dest(config.temp));
 });
 
-/**
- * Wire-up the bower dependencies
- * @return {Stream}
- */
-gulp.task('wiredep', function() {
-    log('Wiring the bower dependencies into the html');
-
-    var wiredep = require('wiredep').stream;
-    var options = config.getWiredepDefaultOptions();
-
-    // Only include stubs if flag is enabled
-    var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
-
-    return gulp
-        .src(config.index)
-        .pipe(wiredep(options))
-        .pipe(inject(js, '', config.jsOrder))
-        .pipe(gulp.dest(config.client));
-});
+///**
+// * Wire-up the bower dependencies
+// * @return {Stream}
+// */
+//gulp.task('wiredep', function() {
+//    log('Wiring the bower dependencies into the html');
+//
+//    var wiredep = require('wiredep').stream;
+//    var options = config.getWiredepDefaultOptions();
+//
+//    // Only include stubs if flag is enabled
+//    var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
+//
+//    return gulp
+//        .src(config.index)
+//        .pipe(wiredep(options))
+//        .pipe(inject(js, '', config.jsOrder))
+//        .pipe(gulp.dest(config.client));
+//});
 
 gulp.task('inject', ['styles', 'templatecache'], function() {
     log('Wire up css into the html, after files are ready');
 
     var cssRugby = config.cssRugby;
+    var js = config.js;
+    var jsVendor = config.jsVendor;
+    var jsConsumer = config.jsConsumer;
 
     return gulp
         .src(config.index)
         .pipe(inject(config.css))
-        .pipe(inject(config.rugbyCss))
         .pipe(inject(cssRugby, 'cssRugby'))
-        .pipe(inject(config.bootstrap))
+        .pipe(inject(jsVendor, 'vendor'))
+        .pipe(inject(jsConsumer, 'consumer'))
+        .pipe(inject(js, '', config.jsOrder))
         .pipe(gulp.dest(config.client));
 });
 
@@ -209,6 +213,12 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function() {
     notify(msg);
 });
 
+gulp.task('dist', ['build'], function() {
+    return gulp.src('build/**/*')
+        .pipe($.tar(config.distTarGzip))
+        .pipe(gulp.dest(config.dist));
+});
+
 /**
  * Optimize all files, move to a build folder,
  * and inject them into the new index.html
@@ -220,8 +230,8 @@ gulp.task('optimize', ['inject' ], function() {
     var assets = $.useref.assets({searchPath: './'});
     // Filters are named for the gulp-useref path
     var cssFilter = $.filter('**/*.css');
-    var jsAppFilter = $.filter('**/' + config.optimized.app);
-    var jslibFilter = $.filter('**/' + config.optimized.lib);
+    var jsAppFilter = $.filter('**/' + config.optimized.app, {restore:true});
+    var jslibFilter = $.filter('**/' + config.optimized.lib, {restore:true});
 
     var templateCache = config.temp + config.templateCache.file;
 
@@ -330,7 +340,7 @@ gulp.task('autotest', function(done) {
  * --debug-brk or --debug
  * --nosync
  */
-gulp.task('serve-dev', ['wiredep', 'inject'], function() {
+gulp.task('serve-dev', ['inject'], function() {
     serve(true /*isDev*/);
 });
 

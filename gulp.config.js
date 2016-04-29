@@ -6,6 +6,7 @@ module.exports = function() {
     var root = './';
     var specRunnerFile = 'specs.html';
     var temp = './.tmp/';
+    var vendor = './vendor/';
     var wiredep = require('wiredep');
     var bowerFiles = wiredep({devDependencies: true})['js'];
     var bower = {
@@ -25,11 +26,17 @@ module.exports = function() {
             './*.js'
         ],
         build: './build/',
+        dist: './dist',
+        distTarGzip: 'akron-rugby.tar',
         client: client,
         css: temp + '**/*.css',
         rugbyCss:  client + 'styles/app.css',
         cssRugby: [
-            './.tmp/styles/rugby.css'
+            './src/vendor/bootstrap.min.css',
+            './src/vendor/calendar.css',
+            './src/client/styles/app.css',
+            './src/vendor/font-awesome.css',
+            './src/vendor/toastr.css'
         ],
         bootstrap: client + 'styles/bootstrap.min.css',
         fonts: bower.directory + 'font-awesome/fonts/**/*.*',
@@ -49,6 +56,36 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
+        jsConsumer: [
+            './src/vendor/jquery.js',
+            './src/vendor/angular/angular.js',
+            './src/vendor/angular/angular-sanitize.js',
+            './src/vendor/ngplus-overlay.js',
+            './src/vendor/angular/angular-ui-router.js',
+            './src/vendor/toastr.js',
+            './src/vendor/angular/angular-animate.js',
+        ],
+        jsOrderConsumer: [
+            './src/vendor/jquery.js',
+            './src/vendor/angular/angular.js',
+            './src/vendor/angular/angular-sanitize.js',
+            './src/vendor/ngplus-overlay.js',
+            './src/vendor/angular/angular-ui-router.js',
+            './src/vendor/toastr.js',
+            './src/vendor/angular/angular-animate.js',
+        ],
+        jsVendor: [
+            './src/vendor/lodash.min.js',
+            './src/vendor/underscore-min.js',
+            './src/vendor/bootstrap.js',
+            './src/vendor/calendar.js'
+        ],
+        jsOrderVendor: [
+            './src/vendor/lodash.min.js',
+            './src/vendor/underscore-min.js',
+            './src/vendor/bootstrap.js',
+            './src/vendor/calendar.js'
+        ],
         less: client + '**/*.less',
         report: report,
         root: root,
@@ -65,7 +102,8 @@ module.exports = function() {
          */
         optimized: {
             app: 'app.js',
-            lib: 'lib.js'
+            consumerLib: 'consumer-lib.js',
+            lib: 'rugby-lib.js'
         },
 
         /**
@@ -128,7 +166,7 @@ module.exports = function() {
          * Node settings
          */
         nodeServer: './src/server/app.js',
-        defaultPort: '7203'
+        defaultPort: '1337'
     };
 
     /**
